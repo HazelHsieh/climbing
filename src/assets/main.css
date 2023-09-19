@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* font-size: 62.5%; */
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    font-family: "Iceberg", -apple-system, "Noto Sans TC", Roboto, "Microsoft JhengHei", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #ffffff;
+    /* font-size: 1.7rem; */
+    min-height: 100%;
+  }
+}
+
+@layer components {
+  .text-shadow {
+    text-shadow : 2px 2px 4px rgba(0, 0, 0, 0.8);
+  } 
+}
