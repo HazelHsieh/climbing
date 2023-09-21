@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: "class", // or 'media' or 'false'
   theme: {
     colors: {
       black: colors.black,
@@ -20,6 +21,8 @@ module.exports = {
       // 自定義
       // base_dark: "#30535B",
       text_color: "#474B42",
+      dark_mode_1: "#2A303C",
+      dark_mode_2: "#242933"
     },
     // extend 舊GPIM
     extend: {

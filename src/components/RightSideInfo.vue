@@ -1,10 +1,9 @@
-<script setup></script>
+<!-- <script setup></script>
 <template>
   <div class="box block">
     <div class="box_inner">
       <div class="box_text p-2">
         <br />
-        <!-- title -->
         <div class="flex justify-between items-center px-6">
           <span class="text-lg mb-2">rightSide </span>
         </div>
@@ -49,4 +48,4 @@
   background-color: rgba(3, 239, 252, 0.2);
   border-radius: 10px;
 }
-</style>
+</style> -->

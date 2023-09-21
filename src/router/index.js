@@ -44,7 +44,6 @@ const router = createRouter({
           name: "parent",
           component: ParentView,
         },
-
       ],
     },
   ],

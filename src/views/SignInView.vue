@@ -3,14 +3,14 @@ import { useRouter } from "vue-router";
 console.log("useRouter:", useRouter());
 const router = useRouter();
 const redirectToLogin = () => {
-  router.push("/home");
+  router.push("/");
 };
 </script>
 
 <template>
   <div class="bg-cover bg-no-repeat bg-center bg-[url('@/assets/images/login_bg2.png')]">
     <div class="container flex justify-center items-center h-screen sm:px-16 rounded w-10/12 md:w-full" data-aos="zoom-in" data-aos-duration="800">
-      <form action="" class="py-2 px-6 md:py-[5%] md:px-[7%] 2xl:py-14 2xl:px-20 rounded-lg text-center shadow-black/30 shadow-sm bg-gradient-to-t from-text_color/50 to-base_dark/20">
+      <form action="" class="py-2 px-6 md:py-[5%] md:px-[7%] 2xl:py-14 2xl:px-20 rounded-lg text-center shadow-black/30 shadow-sm bg-gradient-to-t from-dark_mode_1/40 to-base_dark/20">
         <p class="text-primary text-[90px] md:text-[100px] mb-[-10px] lg:text-[100px] lg:mb-[-20px] leading-none bg-clip-text text-transparent bg-gradient-to-b from-accent/70 to-secondary">Climbing</p>
         <p class="text-primary text-end mr-10 font-bold leading-none bg-clip-text text-transparent bg-gradient-to-b from-accent to-secondary">gogo</p>
         <p class="tracking-[.5em] text-sm mt-10 mb-6">LET’S GET STARTED</p>

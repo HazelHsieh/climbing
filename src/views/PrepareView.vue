@@ -6,16 +6,15 @@ const showScrollToTopButton = ref(false);
 
 // 滚动到页面顶部的函数
 const scrollToTop = () => {
-  
   window.scrollTo({
     top: 0,
-    behavior: "smooth" // 平滑滚动效果
+    behavior: "smooth", // 平滑滚动效果
   });
 };
 
 // 滚动事件监听器函数
 const handleScroll = () => {
-  console.log(111)
+  console.log(111);
   // 显示或隐藏按钮
   if (window.scrollY > 100) {
     console.log(window.scrollY > 100);
@@ -42,19 +41,19 @@ onUnmounted(() => {
     <p>行前準備</p>
 
     <section>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </section>
     <!-- <ScrollToTopButton /> -->
 
@@ -66,9 +65,7 @@ onUnmounted(() => {
         Top
       </span>
     </button> -->
-    
-    <button @click="scrollToTop" class="btn fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg" v-if="showScrollToTopButton">
-      返回顶部
-    </button>
+
+    <button @click="scrollToTop" class="btn fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg" v-if="showScrollToTopButton">返回顶部</button>
   </div>
 </template>

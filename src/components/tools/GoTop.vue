@@ -1,99 +1,37 @@
-<!-- <template>
-  <div
-    class="fixed end-0 bottom-0 pe-3 pb-4"
-    v-if="isShowed"
-  >
-    <button
-      type="button"
-      class="btn"
-      @click="scrollToTop"
-    >
-    <span class="material-symbols-outlined">
-    north
-    </span>
-    </button>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      isShowed: false,
-    };
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    },
-    handleScroll() {
-      const rootElement = document.documentElement;
-      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-      if (rootElement.scrollTop / scrollTotal > 0.1) {
-        this.isShowed = true;
-      } else {
-        this.isShowed = false;
-      }
-    },
-  },
-  mounted() {
-    document.addEventListener('scroll', this.handleScroll);
-  },
-  unmounted() {
-    document.removeEventListener('scroll', this.handleScroll);
-  },
-};
-</script> -->
-
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from "vue";
 
 const isShowed = ref(false);
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth',
+    behavior: "smooth",
   });
 };
 const handleScroll = () => {
-  console.log('handleScroll is called.');
   const scrollY = window.scrollY;
-  const innerHeight = window.innerHeight;
-  if (scrollY / innerHeight > 0.1) {
+  if (scrollY > 1000) {
     isShowed.value = true;
   } else {
     isShowed.value = false;
   }
-  console.log('1ScrollY:', scrollY);
-  console.log('2isShowed:', isShowed.value);
 };
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll, true);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener("scroll", handleScroll, true);
 });
+
 </script>
 <template>
-  <div
-    class="fixed end-0 bottom-0 scroll-top-btn pe-3 pb-4"
-    v-if="isShowed"
-  >
-    <button
-      type="button"
-      class="btn btn-secondary shadow-btn"
-      @click="scrollToTop"
-    >
-      <span class="material-symbols-outlined">
-        north
-      </span>
+  <div class="fixed end-0 bottom-0 scroll-top-btn pe-3 pb-4" v-if="isShowed">
+    <button type="button" class="btn btn-secondary btn-xs h-12 px-1 flex flex-col items-center justify-center"  @click="scrollToTop">
+      <span class="material-symbols-outlined text-center">north</span>
+      <span>Top</span>
     </button>
   </div>
 </template>
-
