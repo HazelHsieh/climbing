@@ -6,8 +6,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: "climbing/",
-  base: "/",
+  base: "climbing/",
+  // base: "/",
   plugins: [
     vue(),
     //   eslintPlugin({

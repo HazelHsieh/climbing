@@ -6,6 +6,9 @@ import ParentView from "../views/ParentView.vue";
 import ScheduleView from "../views/ScheduleView.vue";
 import KnowledgeView from "../views/KnowledgeView.vue";
 import PrepareView from "../views/PrepareView.vue";
+import DashboardView from "../views/DashboardView.vue";
+import BackProducts from "../views/backend/BackProducts.vue";
+import BackArticles from "../views/backend/BackArticles.vue";
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -46,7 +49,23 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/backend",
+      name: "backend",
+      component: DashboardView,
+      children: [
+        {
+          path: "products",
+          name: "products",
+          component: BackProducts,
+        },
+        {
+          path: "articles",
+          name: "articles",
+          component: BackArticles,
+        },
+      ],
+    },
   ],
 });
-
 export default router;

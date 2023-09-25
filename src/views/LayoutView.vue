@@ -3,7 +3,7 @@ import DarkModeSwitcher from "@/components/tools/DarkModeSwitcher.vue";
 // import DarkModeSwitcher from "../components/tools/DarkModeSwitcher.vue";
 // import { RouterLink, RouterView } from "vue-router";
 // import { ref } from 'vue';
-import GoTop from "@/components/tools/GoTop.vue"
+import GoTop from "@/components/tools/GoTop.vue";
 // const isShowed = ref(false);
 </script>
 <template>
@@ -46,6 +46,7 @@ import GoTop from "@/components/tools/GoTop.vue"
         </button>
         <DarkModeSwitcher class="mx-1" />
         <RouterLink class="btn btn-ghost btn-circle active:text-black" to="/signIn">
+          <!-- <RouterLink class="btn btn-ghost btn-circle active:text-black" to="/login"> -->
           <span class="material-symbols-outlined"> account_circle </span>
         </RouterLink>
 
