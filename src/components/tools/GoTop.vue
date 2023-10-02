@@ -11,7 +11,7 @@ const scrollToTop = () => {
 };
 const handleScroll = () => {
   const scrollY = window.scrollY;
-  if (scrollY > 1000) {
+  if (scrollY > 700) {
     isShowed.value = true;
   } else {
     isShowed.value = false;
@@ -27,10 +27,13 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="fixed end-0 bottom-0 scroll-top-btn pe-3 pb-4" v-if="isShowed">
-    <button type="button" class="btn btn-secondary btn-xs h-12 px-1 flex flex-col items-center justify-center" @click="scrollToTop">
+  <div class="fixed end-0 bottom-0 scroll-top-btn pe-4 pb-4" v-if="isShowed">
+    <!-- <button type="button" class="btn btn-primary btn-xs h-12 px-1 flex flex-col items-center justify-center" @click="scrollToTop">
       <span class="material-symbols-outlined text-center">north</span>
       <span>Top</span>
-    </button>
+    </button> -->
+    <div class="cursor-pointer text-secondary dark:text-white" @click="scrollToTop">
+      <span class="material-symbols-outlined font-medium text-3xl"> altitude </span>
+    </div>
   </div>
 </template>

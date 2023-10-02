@@ -22,6 +22,7 @@ const redirectToLogin = async () => {
         showSuccess.value = true; // 顯示成功提示窗
         const data = response.data;
         const { token, expired } = data;
+        // console.log(token, expired);
         document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
         // router.push('/backend/products');
         setTimeout(() => {
@@ -57,17 +58,17 @@ const redirectToLogin = async () => {
         <div class="mb-8">
           <label for="username" class="text-left block mb-3">EMAIL ADDRESS</label>
           <!-- <input v-model="accountInfo.account" id="account" type="text" class="w-full font-roboto bg-gray-400 text-3xl tracking-wide rounded-3xl focus:border-transparent focus:ring-white" /> -->
-          <input v-model="userInfo.username" id="username" type="email" class="w-full font-roboto bg-text_color/50 text-2xl tracking-wide rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent pl-3" />
+          <input v-model="userInfo.username" id="username" type="email" class="w-full font-roboto bg-text_color/50 text-2xl tracking-wide rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent pl-3" autocomplete="username" />
         </div>
         <div class="mb-10">
-          <label for="Password" class="text-left block mb-3">PASSWORD</label>
+          <label for="password" class="text-left block mb-3">PASSWORD</label>
           <!-- <input v-model="accountInfo.password" id="pw" type="password" class="w-full font-roboto bg-gray-400 text-3xl rounded-3xl focus:border-transparent focus:ring-white" /> -->
-          <input v-model="userInfo.password" id="Password" type="password" class="w-full font-roboto bg-text_color/50 text-2xl rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent pl-3" />
+          <input v-model="userInfo.password" id="password" type="password" class="w-full font-roboto bg-text_color/50 text-2xl rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent pl-3" autocomplete="current-password" />
         </div>
         <div class="mb-8 flex justify-between items-center">
           <div class="flex items-center">
-            <label class="cursor-pointer label" for="remember">
-              <input type="checkbox" checked="checked" class="checkbox checkbox-neutral border-2 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" />
+            <label class="cursor-pointer label" for="show-password">
+              <input id="show-password" type="checkbox" checked="checked" class="checkbox checkbox-neutral border-2 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" />
               <span class="ml-2 label-text text-white">顯示密碼</span>
             </label>
           </div>

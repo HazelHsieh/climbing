@@ -7,7 +7,7 @@ const toggleTheme = () => {
   isDarkMode.value = !isDarkMode.value;
   switchTheme();
 };
-
+// 狀態切換
 const switchTheme = () => {
   if (isDarkMode.value) {
     document.body.classList.add("dark");
@@ -15,7 +15,6 @@ const switchTheme = () => {
     document.body.classList.remove("dark");
   }
 };
-
 // 狀態底色
 const themeStatusBg = computed(() => {
   if (isDarkMode.value) {

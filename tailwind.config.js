@@ -22,7 +22,7 @@ module.exports = {
       // base_dark: "#30535B",
       text_color: "#474B42",
       dark_mode_1: "#2A303C",
-      dark_mode_2: "#242933"
+      dark_mode_2: "#242933",
     },
     // extend 舊GPIM
     extend: {
@@ -128,7 +128,6 @@ module.exports = {
           error: "#C54A1A",
           "error-content": "#E63F00",
           "base-100": "#F2F0EE",
-
         },
       },
     ],

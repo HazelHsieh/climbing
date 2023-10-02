@@ -1,7 +1,6 @@
 <script setup>
 // import { ref, onMounted } from "vue";
 // import Loading from "vue-loading-overlay";
-// import { NTabs, NTabPane } from "naive-ui";
 
 // const isLoading = ref(true);
 // onMounted(() => {
@@ -12,21 +11,8 @@
 </script>
 
 <template>
-  <main>
-    <!-- <loading :active="isLoading" loader="bars" :height="150" :width="150" color="#00FFFF" background-color="black" /> -->
-    <!-- tabs -->
-    <!-- <div class="relative">
-      <n-tabs type="line" animated class="mb-10">
-        <n-tab-pane name="tab1" tab="tab1" display-directive="show"> </n-tab-pane>
-        <n-tab-pane name="tab2" tab="tab2"> </n-tab-pane>
-      </n-tabs>
-    </div> -->
-  </main>
+  <!-- <loading :active="isLoading" loader="bars" :height="100" :width="150" color="#DBB380" background-color="black" /> -->
   <section class="">
-    <!-- <figure>
-      <img class="w-full object-cover h-[400px]" src="@/assets/images/banner.png" alt="banner">
-    </figure> -->
-
     <div class="hero min-h-screen bg-[url('@/assets/images/banner.png')]">
       <div class="hero-overlay bg-opacity-10 dark:bg-opacity-20"></div>
       <div class="hero-content text-center text-neutral-content">
@@ -43,7 +29,6 @@
     </div>
   </section>
   <div class="h-1 bg-gradient-to-b from-black/70 dark:from-black/20 mb-5"></div>
-
   <section class="container bg-white dark:bg-dark_mode_2 p-5 mb-10">
     <p class="text-xl text-center pb-5">探索不同體驗</p>
     <ul class="flex flex-wrap gap-10">
@@ -150,12 +135,11 @@
       </li>
     </ul>
   </section>
-  <!-- <section class="bg-cover bg-center bg-[url('@/assets/images/bg.png')]"> -->
   <section class="container mb-10 relative">
     <img class="absolute top-0 -left-[25%]" src="@/assets/images/bg.png" alt="" />
     <div class="flex container">
       <p class="text-2xl w-1/12 mr-1 z-10 dark:text-shadow">熱門<br />行程</p>
-      <ui class="w-11/12 flex flex-col md:flex-row gap-4">
+      <ul class="w-11/12 flex flex-col md:flex-row gap-4">
         <li class="card bg-base-100 dark:bg-dark_mode_2 border border-1 border-primary rounded-sm">
           <figure class="px-3 pt-3">
             <img src="@/assets/images/Mountain/眠月線01.jpg" alt="眠月線01" class="rounded-sm" />
@@ -192,10 +176,9 @@
             </div>
           </div>
         </li>
-      </ui>
+      </ul>
     </div>
   </section>
-  <!-- <section class="bg-cover bg-center bg-fixed h-48 relative" style="background-image: url('https://lh3.googleusercontent.com/fife/AKsag4P0mmLLN3_FrjE2uCkNeqr9ZotV8t3cvSgn_AcAcAcEO4fS6E_rKfa2c9e8cXfeUqY1q0TD9rgwG_DrZlMrCla5CrvNP9p8qzShYsdICKJCVFlaTCQNgWj-Jq1-l9sIhsGd-MzqUhk5BXkPvqLtXGWcVbeeRDDrK-SZ7wB3M9w-CHuUwgW0GkRxxPvJ_-7Ok-Ep58SSrHQDpxUWhQPGmW6VeTiT0qD780rLPTtieKUcEyPZd4Y3OypozD5igAs75Lw7WcXoGiNDwoEFq7ps5d6dr9vRt1Cwh4Gwj3zJVUD_SwmqE1kV4NLZwHomA2v20yjRQ6pDo_jXwr2LvCyDR13puR5XJZDAK7REM24uJaQZnkYqYnOMexahNsBco7lIclFwticUmvMXhrEVm8yGT05WcRxTv8fML69pd2Ramo-GoM6c8U87bhyLmHHW2wVR_t4EhJDdjlKRAZF_4-WmnJ6oxosoPTyRHT6ZHu_g3PgU2LYfFPJLPZX0qvGs1Xhv1-EeT7Sp6sofWpTk2F2CJYK0XLjDRFH3F_FLVi3BU9WRQ4U0fvuEKlWSOtlwRGl1bk6gCkuM8ZZsMLKCSlAo95i2D_akCdajUNtHghDlHuyaVMvaFSvjVFUJrkDxNMyRfpT-5_bU1wll8dieYV7jZfdglhmMLkLCeALcni4iVwq8pBO-2ZJDd1vukT5lrklzgIUS-2qb1NJtTXR3-1a9jDiEt5_IaDXsCUPQEUCLGQdtuvPok3dpCGelefAxSvGz_FRW8cpQ_d6uTmxosKAgEnjUT3iSjPB_lAOagSo57J5b4_gocjXo3gTvDE-hcv8VtqH0CJqFotZ8U05WP8f3xNSnjR3LconcD_0c2ssmFayktHivzYBVhU3xoROcBbn76iP4Asb4a05A7IvZ7e-NW75mx1xFYG-S2BxoY0RojmiKi2C227ucaG2OKNhDvstV9nVaZd3Pjg=w2556-h1434');"> -->
   <section
     class="bg-cover bg-center bg-fixed h-44 mb-10"
     style="
@@ -239,7 +222,6 @@
   </section>
   <section class="pb-5 bg-gradient-to-b from-[#F2F0EE] dark:from-dark_mode_1 to-white">
     <div class="flex justify-center items-center container">
-      <!-- <figure class="pr-5 pb-3"> -->
       <figure class="w-2/5 pr-5 pb-3">
         <img class="shadow-xl rounded-sm opacity-80" src="@/assets/images/Mountain/眠月線02.jpg" alt="眠月線02" />
       </figure>
@@ -249,7 +231,7 @@
         <div class="form-control">
           <div class="input-group input-group-sm">
             <input type="text" placeholder="輸入您的信箱" class="input input-bordered input-sm" />
-            <button class="btn btn-square btn-sm w-10">訂閱</button>
+            <button class="btn btn-square btn-primary btn-sm w-10">訂閱</button>
           </div>
         </div>
       </div>
