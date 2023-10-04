@@ -1,6 +1,5 @@
 <script setup>
 import DarkModeSwitcher from "@/components/tools/DarkModeSwitcher.vue";
-// import { RouterLink, RouterView } from "vue-router";
 import GoTop from "@/components/tools/GoTop.vue";
 import { ref } from "vue";
 
@@ -12,6 +11,7 @@ const toggleDropdown = () => {
 const closeDropdown = () => {
   isDropdownOpen.value = false;
 };
+
 </script>
 <template>
   <nav class="navbar dark:bg-dark_mode_1 bg-white dark:text-white text-text_color sticky top-0 z-20">

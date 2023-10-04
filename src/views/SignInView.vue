@@ -1,29 +1,29 @@
 <script setup>
-import axios from "axios";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-const { VITE_APP_URL } = import.meta.env;
+import  api from "@/apis/https.js";
 const router = useRouter();
 
 const userInfo = {
   username: "",
   password: "",
 };
-
 const showSuccess = ref(false); // 登入成功提示窗
 const showError = ref(false); // 登入失敗提示窗
 
 const redirectToLogin = async () => {
   if (userInfo.username !== "" && userInfo.password !== "") {
     try {
-      const response = await axios.post(`${VITE_APP_URL}admin/signin`, userInfo);
-
+      // const response = await axios.post(`${VITE_API}admin/signin`, userInfo);
+      const response = await api.login(userInfo);
       if (response.status === 200) {
         showSuccess.value = true; // 顯示成功提示窗
         const data = response.data;
         const { token, expired } = data;
-        // console.log(token, expired);
-        document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
+        console.log(token, expired);
+        //                     自定義
+        // document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
+        document.cookie = `climbingToken=${token}; expires=${new Date(expired)};`;
         // router.push('/backend/products');
         setTimeout(() => {
           showSuccess.value = false;

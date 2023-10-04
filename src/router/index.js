@@ -7,7 +7,7 @@ import ProductInfoView from "../views/ProductInfoView.vue";
 import ArticleView from "../views/ArticleView.vue";
 import ArticleInfoView from "../views/ArticleInfoView.vue";
 import PrepareView from "../views/PrepareView.vue";
-import DashboardView from "../views/DashboardView.vue";
+import DashboardView from "../views/backend/DashboardView.vue";
 import BackProducts from "../views/backend/BackProducts.vue";
 import BackArticles from "../views/backend/BackArticles.vue";
 const router = createRouter({

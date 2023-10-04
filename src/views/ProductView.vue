@@ -79,7 +79,7 @@ const { products } = storeToRefs(ProductsStore); // 在解構出来就不用在�
       <div class="lg:flex-auto w-full">
         <!-- <div v-show="!isLoading" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-6"> -->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-6">
-          <template v-for="product in products.products" :key="product.id">
+          <template v-for="product in products" :key="product.id">
             <ProductItem :product="product" />
           </template>
         </div>
