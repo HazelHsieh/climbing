@@ -11,7 +11,6 @@ const toggleDropdown = () => {
 const closeDropdown = () => {
   isDropdownOpen.value = false;
 };
-
 </script>
 <template>
   <nav class="navbar dark:bg-dark_mode_1 bg-white dark:text-white text-text_color sticky top-0 z-20">

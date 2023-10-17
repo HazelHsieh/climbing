@@ -6,17 +6,18 @@ import { useProductsStore } from "@/stores/productsStore.js";
 import { storeToRefs } from "pinia";
 const ProductsStore = useProductsStore(); // 把方法變成變數
 const { products } = storeToRefs(ProductsStore); // 在解構出来就不用在前缀加上 store
-// import { ref } from "vue";
+import { ref } from "vue";
 // // Loading
-// import Loading from "vue-loading-overlay";
-// const isLoading = ref(true); // 初始值
-// setTimeout(() =>{
-//   isLoading.value = false;
-// }, 1000);
+import Loading from "vue-loading-overlay";
+const isLoading = ref(true); // 初始值
+
+setTimeout(() => {
+  isLoading.value = false;
+}, 1000);
 </script>
 <template>
   <PageHeader :image-url="pageImage" />
-  <!-- <loading :active="isLoading" color="white" background-color="black" /> -->
+  <loading :active="isLoading" width="35px" color="#D5B690" background-color="black" />
   <div class="container">
     <div class="flex flex-col lg:flex-row justify-between lg:space-x-8 mt-5">
       <!-- 側邊篩選 -->
@@ -77,8 +78,7 @@ const { products } = storeToRefs(ProductsStore); // 在解構出来就不用在�
       </div>
       <!-- 行程列表 -->
       <div class="lg:flex-auto w-full">
-        <!-- <div v-show="!isLoading" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-6"> -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-6">
+        <div v-show="!isLoading" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-6">
           <template v-for="product in products" :key="product.id">
             <ProductItem :product="product" />
           </template>

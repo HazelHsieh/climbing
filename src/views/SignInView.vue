@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import  api from "@/apis/https.js";
+import api from "@/apis/https.js";
 const router = useRouter();
 
 const userInfo = {

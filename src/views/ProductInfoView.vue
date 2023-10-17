@@ -1,13 +1,47 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import pageImage from "@/assets/images/pageImage/productView.jpg";
 import PageHeader from "@/components/PageHeader.vue";
+import { useRoute } from "vue-router";
+import api from "../apis/https";
+// import { storeToRefs } from "pinia";
+// import { useProductsStore } from "@/stores/productsStore.js";
+
+const route = useRoute();
+// const ProductsStore = useProductsStore(); // 把方法變成變數
+// const { productInfo } = storeToRefs(ProductsStore); // 在解構出来就不用在前缀加上 store
+
 const tabList = ["行程內容", "注意事項"];
 let currentTab = ref("行程內容");
 
+const productInfo = ref([]);
+const productId = route.params.id;
 const toggle = (content) => {
   content.active = !content.active;
 };
+// 文字 format
+const formatText = (text) => text.replace(/\n/g, "<br >");
+const getProductInfo = async (id) => {
+  try {
+    // const res = await api.getProduct(`-NgqY7wl3yQ_vmhUoLTH`);
+    const res = await api.getProduct(id);
+    console.log(res.data.product);
+    productInfo.value = res.data.product;
+    productInfo.value.content = formatText(res.data.product.content);
+    console.log(productInfo.value.content);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// onMounted(() => {
+//   if(route.params.id){
+//     getProductInfo(route.params.id);
+//   }
+// });
+onBeforeMount(() => {
+  getProductInfo(productId);
+});
 </script>
 
 <template>
@@ -15,21 +49,13 @@ const toggle = (content) => {
   <div class="container text-text_color dark:text-white">
     <div class="flex flex-col-reverse lg:flex-row justify-between lg:space-x-8 pt-10 pb-16">
       <div class="lg:w-2/3 space-y-6">
-        <p class="font-bold text-3xl">◈◈世紀奇峰巨人的酒桶◈◈大霸群峰三天三夜/免背公裝公糧帳篷睡袋/登山推薦</p>
+        <p class="font-bold text-3xl">{{ productInfo.title }}</p>
         <div class="flex items-center pb-2 border-b border-black dark:border-white/80">
           <span class="mr-1 text-primary material-symbols-outlined"> location_on </span>
-          <span class="lg:font-bold text-text_color/80 dark:text-white/90"> 新竹 </span>
+          <span class="lg:font-bold text-text_color/80 dark:text-white/90"> {{ productInfo.location }} </span>
         </div>
         <div class="flex flex-col pl-4">
-          <div class="editor-content">
-            1. 大霸尖山3492m/二等1540/百岳排名27/三尖02
-            <br />
-            2. 小霸尖山/3418m/百岳排名32
-            <br />
-            3. 伊澤山/3297m/三等6251/百岳排名52/極北
-            <br />
-            4. 加利山/3112m/三等6619/百岳排名87
-          </div>
+          <div v-html="productInfo.description"></div>
         </div>
         <div class="flex flex-col">
           <ul class="flex border-b border-black dark:border-white/80 mb-5">
@@ -42,64 +68,10 @@ const toggle = (content) => {
           <div class="flex flex-col pl-4">
             <transition name="fade" mode="out-in">
               <div class="editor-content block" v-if="currentTab === '行程內容'">
-                <div>
-                  **◆Day0**<br />
-
-                  新竹民宿<br />
-
-                  - 清泉天主堂（新竹縣五峰鄉桃山村10鄰184號）<br />
-
-                  **◆Day1**<br />
-
-                  民宿出發→接駁車→大霸尖山登山口<br />
-
-                  - 04:30起床早餐(民宿提供)<br />
-                  - 06:50大霸尖山登山服務站<br />
-                  - 07:00大鹿林道出發<br />
-                  - 12:00馬達拉溪宿營地 (有水源)(吃午餐)<br />
-                  - 12:30馬達拉溪登山口出發<br />
-                  - 16:00九九山莊(夜宿)(吃晚餐廚房提供)<br />
-                  - 海拔爬升：2000→1750→2700 (17公里下降250公尺 4.2公里爬升1000)<br />
-
-                  行進距離：約 21公里 行進時間： 10小時<br />
-
-                  **◆Day2**<br />
-
-                  九九山莊→加利山叉路口→伊澤山→中霸山屋→大霸尖山→小霸尖山→大霸尖山→中霸坪→中霸山屋→九九山莊<br />
-
-                  - 03:30起床早餐(吃早餐廚房提供)<br />
-                  - 04:30九九山莊出發<br />
-                  - 06:00加利山叉路口<br />
-                  - 07:30伊澤山叉路口<br />
-                  - 08:30中霸山屋(有水源)<br />
-                  - 09:00中霸坪<br />
-                  - 09:30大霸尖山霸基<br />
-                  - 10:30聖稜線叉路口<br />
-                  - 11:00小霸尖山<br />
-                  - 11:30聖稜線叉路口<br />
-                  - 12:00大霸尖山霸基<br />
-                  - 12:30中霸山屋(吃午餐)<br />
-                  - 13:00中霸山屋折返<br />
-                  - 14:00伊澤山<br />
-                  - 15:00加利山叉路口<br />
-                  - 15:30加利山登頂<br />
-                  - 17:00九九山莊(晚餐山屋廚房提供)<br />
-                  - 海拔爬升：2700→3297→3280→3392→3300→3418→3300→3392→3280→2700<br />
-                  - (上升約1600公尺)<br />
-                  - (九九山莊海拔2700、伊澤山海拔3297、中霸山屋海拔3280)<br />
-
-                  行進距離：約 21公里 行進時間： 15小時<br />
-
-                  **◆Day3**<br />
-
-                  - 04:30 起床早餐(吃早餐)<br />
-                  - 05:00 九九山莊出發<br />
-                  - 06:30 馬達拉溪登山口<br />
-                  - 13:00 大霸尖山登山服務站結束<br />
-                  - 海拔爬升：2800→1750→2000<br />
-
-                  行進距離：約 21公里 行進時間： 6.5小時<br />
-                </div>
+                <!-- <div>
+                  {{ productInfo.content }}
+                </div> -->
+                <div v-html="productInfo.content"></div>
               </div>
               <div class="block" v-else-if="currentTab === '注意事項'">
                 <ol class="space-y-2 pt-3 pl-5 en-caption-02 leading-7.5 font-bold list-decimal">

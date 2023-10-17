@@ -1,35 +1,33 @@
 <script setup>
-  import  api from "@/apis/https";
-  import { useRouter } from "vue-router";
-  const router = useRouter();
-  import { onBeforeMount } from "vue";
-  const check = async () => {
-    try {
-      const res = await api.check();
-      console.log(22);
-      if(!res.data.success) {
-        console.log(123);
-        router.push('/signIn')
-      }
-    } catch (err){
-      console.log(err);
-      router.push('/signIn')
+import api from "@/apis/https";
+import { useRouter } from "vue-router";
+const router = useRouter();
+import { onBeforeMount } from "vue";
+const check = async () => {
+  try {
+    const res = await api.check();
+    if (!res.data.success) {
+      router.push("/signIn");
     }
+  } catch (err) {
+    console.log(err);
+    router.push("/signIn");
   }
-  const logout = async () => {
-    try {
-      const res = await api.logout();
-      if (res.data.success) {
-        document.cookie = "climbingToken=''";
-        router.push("./");
-      }
-    } catch (err) {
-      console.log(err);
+};
+const logout = async () => {
+  try {
+    const res = await api.logout();
+    if (res.data.success) {
+      document.cookie = "climbingToken=''";
+      router.push("./");
     }
+  } catch (err) {
+    console.log(err);
   }
-  onBeforeMount(() => {
-    check();
-  })
+};
+onBeforeMount(() => {
+  check();
+});
 </script>
 <template>
   <div class="text-text_color">
