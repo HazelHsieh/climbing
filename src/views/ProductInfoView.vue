@@ -2,20 +2,22 @@
 import { ref, onBeforeMount } from "vue";
 import pageImage from "@/assets/images/pageImage/productView.jpg";
 import PageHeader from "@/components/PageHeader.vue";
-import { useRoute } from "vue-router";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
 import api from "../apis/https";
-// import { storeToRefs } from "pinia";
-// import { useProductsStore } from "@/stores/productsStore.js";
+import { useProductsStore } from "@/stores/productsStore.js";
+import Loading from "vue-loading-overlay";
 
 const route = useRoute();
-// const ProductsStore = useProductsStore(); // 把方法變成變數
-// const { productInfo } = storeToRefs(ProductsStore); // 在解構出来就不用在前缀加上 store
+const ProductsStore = useProductsStore(); // 把方法變成變數
+// 從路由路徑中分割('/')字符串取得第三部分
+const productId = route.path.split("/")[2];
 
 const tabList = ["行程內容", "注意事項"];
 let currentTab = ref("行程內容");
 
+const isLoading = ref(false); // 初始值
 const productInfo = ref([]);
-const productId = route.params.id;
+// const productId = route.params.id;
 const toggle = (content) => {
   content.active = !content.active;
 };
@@ -24,11 +26,11 @@ const formatText = (text) => text.replace(/\n/g, "<br >");
 const getProductInfo = async (id) => {
   try {
     // const res = await api.getProduct(`-NgqY7wl3yQ_vmhUoLTH`);
+    isLoading.value = true;
     const res = await api.getProduct(id);
-    console.log(res.data.product);
     productInfo.value = res.data.product;
     productInfo.value.content = formatText(res.data.product.content);
-    console.log(productInfo.value.content);
+    isLoading.value = false;
   } catch (error) {
     console.log(error.message);
   }
@@ -39,15 +41,21 @@ const getProductInfo = async (id) => {
 //     getProductInfo(route.params.id);
 //   }
 // });
+// 當頁面即將載入時觸發
 onBeforeMount(() => {
   getProductInfo(productId);
+});
+// 當路由發生更新的時候觸發
+onBeforeRouteUpdate((to) => {
+  getProductInfo(to.path.split("/")[2]);
 });
 </script>
 
 <template>
   <PageHeader :image-url="pageImage" />
+  <loading :active="isLoading" color="#D5B690" background-color="black" />
   <div class="container text-text_color dark:text-white">
-    <div class="flex flex-col-reverse lg:flex-row justify-between lg:space-x-8 pt-10 pb-16">
+    <div v-show="!isLoading" class="flex flex-col-reverse lg:flex-row justify-between lg:space-x-8 pt-10 pb-16">
       <div class="lg:w-2/3 space-y-6">
         <p class="font-bold text-3xl">{{ productInfo.title }}</p>
         <div class="flex items-center pb-2 border-b border-black dark:border-white/80">
@@ -100,7 +108,12 @@ onBeforeMount(() => {
         <div class="sticky top-[72px] inset-x-0 p-6 space-y-6 bg-base-100 dark:bg-dark_mode_2 border border-primary rounded-sm">
           <p class="text-lg text-center">心動不如馬上行動，加入行程展開活動</p>
           <div class="">
-            <button type="button" @click="addCart(productContent, qty)" class="btn btn-outline btn-primary w-full rounded-sm">加入行程</button>
+            <!--用product.id 當對應的值 <p>{{ productInfo.id }}</p> -->
+            <button type="button" @click.prevent="ProductsStore.toggleFav(productInfo.id)" class="btn btn-outline btn-primary w-full rounded-sm">
+              <!-- 加入行程 -->
+              <span v-if="ProductsStore.isFav['climbingFav' + productInfo.id]">取消行程</span>
+              <span v-else>加入行程</span>
+            </button>
           </div>
         </div>
       </div>
