@@ -161,6 +161,7 @@ const setHovering = (item) => {
       </li>
     </ul>
   </section>
+  <!-- 熱門行程 -->
   <section class="container mb-10 relative">
     <img class="absolute top-0 -left-[25%]" src="@/assets/images/bg.png" alt="" />
     <div data-aos="fade-up" data-aos-duration="2000" class="flex container">
@@ -205,6 +206,7 @@ const setHovering = (item) => {
       </ul>
     </div>
   </section>
+  <!-- 上山警語 -->
   <section
     class="bg-cover bg-center bg-fixed h-44 mb-10"
     style="
@@ -216,6 +218,7 @@ const setHovering = (item) => {
       <li class="hidden xs:block text-base leading-tight">帶什麼上山帶什麼下山，來去不留痕跡。</li>
     </ul>
   </section>
+  <!-- 登山知識 -->
   <section class="mb-10">
     <p class="text-xl text-center mb-5">你還想知道什麼嗎？</p>
     <p class="text-center mb-5">透過以下分類讓你快速找到需要的登山知識</p>
@@ -246,7 +249,7 @@ const setHovering = (item) => {
       </li>
     </ul>
   </section>
-  <section class="pb-5 bg-gradient-to-b from-[#F2F0EE] dark:from-dark_mode_1 to-white">
+  <!-- <section class="pb-5 bg-gradient-to-b from-[#F2F0EE] dark:from-dark_mode_1 to-white">
     <div class="flex justify-center items-center container">
       <figure class="w-2/5 pr-5 pb-3">
         <img class="shadow-xl rounded-sm opacity-80" src="@/assets/images/Mountain/眠月線02.jpg" alt="眠月線02" />
@@ -262,7 +265,7 @@ const setHovering = (item) => {
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <style lang="scss" scoped>
