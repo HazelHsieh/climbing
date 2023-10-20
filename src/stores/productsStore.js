@@ -22,6 +22,30 @@ export const useProductsStore = defineStore("productsStore", () => {
   // };
   // getProductInfo();
 
+  // menu List
+  const menu = ref([
+    {
+      name: "全部行程",
+      link: "/product",
+      key: "all",
+    },
+    {
+      name: "輕鬆爬爬",
+      link: "/product?category=輕鬆爬爬",
+      key: "輕鬆爬爬",
+    },
+    {
+      name: "流汗爬爬",
+      link: "/product?category=流汗爬爬",
+      key: "流汗爬爬",
+    },
+    {
+      name: "認真爬爬",
+      link: "/product?category=認真爬爬",
+      key: "認真爬爬",
+    },
+  ]);
+
   // favorite
   const isFav = reactive({});
   // 獲取所有以 "climbingFav" 開頭的本地儲存名子，這些名子用於表示行程的“收藏”狀態
@@ -77,6 +101,7 @@ export const useProductsStore = defineStore("productsStore", () => {
     products,
     getProducts,
     toggleFav,
+    menu,
     isFav,
   };
 });

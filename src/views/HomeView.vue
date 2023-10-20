@@ -1,5 +1,17 @@
 <script setup>
 // import { ref, onMounted } from "vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const toCategory = (tag) => {
+  router.push({
+    name: "product",
+    query: { category: tag },
+  });
+};
+// console.log(toCategory);
+
 // import Loading from "vue-loading-overlay";
 
 // const isLoading = ref(true);
@@ -29,6 +41,7 @@
     </div>
   </section>
   <div class="h-1 bg-gradient-to-b from-black/70 dark:from-black/20 mb-5"></div>
+  <!-- 探索不同體驗 -->
   <section class="container bg-white dark:bg-dark_mode_2 p-5 mb-10">
     <p class="text-xl text-center pb-5">探索不同體驗</p>
     <ul class="flex flex-wrap gap-10">
@@ -41,7 +54,7 @@
           <!-- 2. -->
           <div class="card shadow-xl rounded-sm">
             <figure class="pr-5 pb-3">
-              <img src="@/assets/images/Mountain/郡大山01.jpg" alt="Shoes" class="rounded-sm" />
+              <img src="@/assets/images/Mountain/郡大山01.jpg" alt="郡大山01" class="rounded-sm" />
             </figure>
             <!-- <div class="">
               <h2 class="text-end text-2xl mr-5">輕鬆爬爬</h2>
@@ -52,11 +65,11 @@
           </div>
         </div>
         <div class="w-full sm:w-1/2 p-5">
-          <p class="px-1">登山是一項令人興奮的戶外運動，可以帶給你更多的收穫。特別是你在初次登山可以在山頂迎接生命中最令人難以置信的景色和感受，面對挑戰，經歷變化，從而醞釀著人生中最難忘的回憶。踏上登山旅程，攀上山頂，一輩子的回憶正在等待你！</p>
+          <p class="px-1 tracking-wide">輕鬆爬爬，是一場輕鬆而充實的山行體驗。無需花費太多的時間，半天至一天的行程即可完成。這是一個適合所有人的選擇，不論你是初次嘗試登山，還是希望度過一個輕鬆的週末。在輕鬆爬爬中，你可以欣賞到大自然的美麗風景，同時也感受到輕鬆的快樂。</p>
           <br />
           <!-- <div class="flex items-end">
           </div> -->
-          <a href="" class="group flex justify-end items-end text-end mr-7">
+          <a href="#" @click.prevent="toCategory('輕鬆爬爬')" class="group flex justify-end items-end text-end mr-7">
             <span class="group-hover:bg-sky-50 group-hover:rounded group-hover:delay-1000">立刻探索</span>
             <span class="w-4 group-hover:hidden"> </span>
             <span class="material-icons text-sm group-hover:bg-sky-50 hidden group-hover:block group-hover:bg-sky-50 group-hover:rounded group-hover:delay-150">trending_flat</span>
@@ -70,7 +83,7 @@
           <!-- 2. -->
           <div class="card shadow-xl rounded-sm">
             <figure class="pr-5 pb-3">
-              <img src="@/assets/images/Mountain/郡大山01.jpg" alt="Shoes" class="rounded-sm" />
+              <img src="@/assets/images/Mountain/郡大山01.jpg" alt="郡大山01" class="rounded-sm" />
             </figure>
             <!-- <div class="">
               <h2 class="text-end text-2xl mr-5">輕鬆爬爬</h2>
@@ -83,7 +96,7 @@
       </li>
       <li class="flex flex-col sm:flex-row justify-center items-center">
         <div class="w-full sm:w-1/2 relative">
-          <div class="card rounded-sm">
+          <div class="card shadow-xl rounded-sm">
             <figure class="pr-5 pb-3">
               <img src="@/assets/images/Mountain/奇萊南峰01.png" alt="奇萊南峰01" class="rounded-sm" />
             </figure>
@@ -93,9 +106,9 @@
           </div>
         </div>
         <div class="w-full sm:w-1/2 p-5">
-          <p class="px-5">踏上登山之旅，每一步前行都將會是一場冒險，你還會領悟到攻克高峰的磨練，和對自然萬物的尊重；集結寶貴的能量，將使你在追求夢想的道路上更加踏實，承受挑戰，也開啟一段精彩的壯麗旅程！</p>
+          <p class="px-5 tracking-wide">流汗爬爬，給你帶來更多的挑戰和冒險。除了一天的行程外，你還可以選擇兩天一夜來享受山區的美景。這條路線可能需要更多的體力，但你會發現，汗水是通向美麗景點的代價。流汗爬爬讓你有機會欣賞不同的風景，同時也留下了寶貴的回憶。</p>
           <br />
-          <a href="" class="group flex justify-end items-end text-end mr-7">
+          <a href="" @click.prevent="toCategory('流汗爬爬')" class="group flex justify-end items-end text-end mr-7">
             <span class="group-hover:bg-sky-50 group-hover:rounded group-hover:delay-1000">立刻探索</span>
             <span class="w-4 group-hover:hidden"> </span>
             <span class="material-icons text-sm group-hover:bg-sky-50 hidden group-hover:block group-hover:bg-sky-50 group-hover:rounded group-hover:delay-150">trending_flat</span>
@@ -104,9 +117,9 @@
       </li>
       <li class="flex flex-col sm:flex-row justify-center items-center">
         <div class="w-full sm:w-1/2 block sm:hidden relative">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm rounded-sm">
             <figure class="pr-5 pb-3">
-              <img src="@/assets/images/Mountain/嘉明湖11.png" alt="奇萊南峰01" class="rounded-sm" />
+              <img src="@/assets/images/Mountain/嘉明湖11.png" alt="嘉明湖11" class="rounded-sm" />
             </figure>
           </div>
           <div class="absolute bottom-0 right-4 z-10">
@@ -114,18 +127,18 @@
           </div>
         </div>
         <div class="w-full sm:w-1/2 p-5">
-          <p class="px-5">勇敢挑戰極限，極致的攀登將為你帶來極致的感受；追求自由的極限將在你眼前展開；在征服極限的興奮中，還會帶來一種深沉的內在收穫，令你更加深刻的看待和欣賞自然的美；攀登高山，找到內心自由，從內而外，探索人生！</p>
+          <p class="px-5 tracking-wide">認真爬爬，是真正的登山冒險。這需要更多的時間和耐力，可能需要三天兩夜或更長的時間。在這條路線上，你需要更多的計劃和籌備，同時也需要更多的登山經驗。然而，這個旅程也讓你有機會探索更遙遠的地方，並感受到大自然的震撼和寧靜。</p>
           <br />
-          <a href="" class="group flex justify-end items-end text-end mr-7">
+          <a href="" @click.prevent="toCategory('認真爬爬')" class="group flex justify-end items-end text-end mr-7">
             <span class="group-hover:bg-sky-50 group-hover:rounded group-hover:delay-1000">立刻探索</span>
             <span class="w-4 group-hover:hidden"> </span>
             <span class="material-icons text-sm group-hover:bg-sky-50 hidden group-hover:block group-hover:bg-sky-50 group-hover:rounded group-hover:delay-150">trending_flat</span>
           </a>
         </div>
         <div class="w-full sm:w-1/2 hidden sm:block relative">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm rounded-sm">
             <figure class="pr-5 pb-3">
-              <img src="@/assets/images/Mountain/嘉明湖11.png" alt="奇萊南峰01" class="rounded-sm" />
+              <img src="@/assets/images/Mountain/嘉明湖11.png" alt="嘉明湖11" class="rounded-sm" />
             </figure>
           </div>
           <div class="absolute bottom-0 right-4 z-10">
@@ -148,7 +161,7 @@
             <p class="font-bold">名稱 <span class="font-normal">被遺忘的鐵道-眠月線</span></p>
             <p class="font-bold">時程 <span class="font-normal">兩天一夜</span></p>
             <div class="card-actions justify-center">
-              <button class="btn btn-outline btn-primary w-full rounded-sm">參考行程</button>
+              <RouterLink :to="`/product/-NgvoaTTi0IZUBxrrb_5`" class="btn btn-outline btn-primary w-full rounded-sm">參考行程</RouterLink>
             </div>
           </div>
         </li>
@@ -160,7 +173,7 @@
             <p class="font-bold">名稱 <span class="font-normal">奇萊華峰 - 黃金大草原</span></p>
             <p class="font-bold">時程 <span class="font-normal">兩天一夜</span></p>
             <div class="card-actions justify-center">
-              <button class="btn btn-outline btn-primary w-full rounded-sm">參考行程</button>
+              <RouterLink :to="`/product/-NgvVQs2Zuv1rs8JtB0i`" class="btn btn-outline btn-primary w-full rounded-sm">參考行程</RouterLink>
             </div>
           </div>
         </li>
@@ -172,7 +185,7 @@
             <p class="font-bold">名稱 <span class="font-normal">大霸群峰 - 巨人的酒桶</span></p>
             <p class="font-bold">時程 <span class="font-normal">三天三夜</span></p>
             <div class="card-actions justify-center">
-              <button class="btn btn-outline btn-primary w-full rounded-sm">參考行程</button>
+              <RouterLink :to="`/product/-NgqXCmjYncHer4McAg4`" class="btn btn-outline btn-primary w-full rounded-sm">參考行程</RouterLink>
             </div>
           </div>
         </li>
