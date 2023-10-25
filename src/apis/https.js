@@ -65,6 +65,16 @@ async function getProducts() {
   return instance.get(`api/${VITE_PATH}/products/all`);
 }
 
+// getArticle
+async function getArticle(id) {
+  return instance.get(`api/${VITE_PATH}/article/${id}`);
+}
+
+// getArticle
+async function getArticles() {
+  return instance.get(`api/${VITE_PATH}/Articles`);
+}
+
 /**
  * Admin API
  */
@@ -107,6 +117,8 @@ async function delAdminData(slug, id) {
 export default {
   getProduct,
   getProducts,
+  getArticle,
+  getArticles,
   login,
   check,
   logout,

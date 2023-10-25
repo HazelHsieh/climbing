@@ -224,28 +224,36 @@ const setHovering = (item) => {
     <p class="text-center mb-5">透過以下分類讓你快速找到需要的登山知識</p>
     <ul class="list-none flex flex-wrap text-center p-10 font-bold">
       <li data-aos="fade-down-right" data-aos-duration="2000" class="w-full xs:w-1/2 sm:w-1/4 aspect-square flex items-center justify-center bg-primary hover:bg-cover hover:bg-no-repeat hover:bg-center hover:bg-[url('@/assets/images/blog/wear.jpg')] text-white mb-2 shadow-md">
-        <figure class="flex flex-col items-center justify-center">
-          <img class="" src="@/assets/images/icons/wearIcon-w.svg" alt="wearIcon-w" />
-          <p class="">身著推薦</p>
-        </figure>
+        <RouterLink :to="`article/-NhZwaPlb8sZZ4E7BUTl`" class="">
+          <figure class="flex flex-col items-center justify-center">
+            <img class="" src="@/assets/images/icons/wearIcon-w.svg" alt="wearIcon-w" />
+            <p class="">身著推薦</p>
+          </figure>
+        </RouterLink>
       </li>
       <li data-aos="fade-down-left" data-aos-duration="2000" class="w-full xs:w-1/2 sm:w-1/4 aspect-square flex items-center justify-center bg-white hover:bg-cover hover:bg-no-repeat hover:bg-center hover:bg-[url('@/assets/images/blog/food.webp')] text-black mt-2 shadow-md">
-        <figure class="flex flex-col items-center justify-center">
-          <img class="" src="@/assets/images/icons/foodIcon-b.svg" alt="wearIcon-w" />
-          <p class="">糧食推薦</p>
-        </figure>
+        <RouterLink :to="`article/-NhZy2SiMOgr7nWURZ9p`" class="">
+          <figure class="flex flex-col items-center justify-center">
+            <img class="" src="@/assets/images/icons/foodIcon-b.svg" alt="wearIcon-w" />
+            <p class="">糧食推薦</p>
+          </figure>
+        </RouterLink>
       </li>
       <li data-aos="fade-up-right" data-aos-duration="2000" class="w-full xs:w-1/2 sm:w-1/4 aspect-square flex items-center justify-center bg-primary hover:bg-cover hover:bg-no-repeat hover:bg-center hover:bg-[url('@/assets/images/blog/smallThings.jpg')] text-white mb-2 shadow-md">
-        <figure class="flex flex-col items-center justify-center">
-          <img class="" src="@/assets/images/icons/smallThingsIcon-w.svg" alt="smallThingsIcon-w" />
-          <p class="">行動小物</p>
-        </figure>
+        <RouterLink :to="`article/-NhZx1qm7uBLB2CZFyHi`" class="">
+          <figure class="flex flex-col items-center justify-center">
+            <img class="" src="@/assets/images/icons/smallThingsIcon-w.svg" alt="smallThingsIcon-w" />
+            <p class="">登山知識</p>
+          </figure>
+        </RouterLink>
       </li>
       <li data-aos="fade-up-left" data-aos-duration="2000" class="w-full xs:w-1/2 sm:w-1/4 aspect-square flex items-center justify-center bg-white hover:bg-cover hover:bg-no-repeat hover:bg-center hover:bg-[url('@/assets/images/blog/fitOut1.jpg')] text-black mt-2 shadow-md">
-        <figure class="flex flex-col items-center justify-center">
-          <img class="" src="@/assets/images/icons/fitOutIcon-b.svg" alt="foodIcon-w" />
-          <p class="">裝備推薦</p>
-        </figure>
+        <RouterLink :to="`article/-NhZyhg2tPIhjmTPRrOm`" class="">
+          <figure class="flex flex-col items-center justify-center">
+            <img class="" src="@/assets/images/icons/fitOutIcon-b.svg" alt="foodIcon-w" />
+            <p class="">裝備推薦</p>
+          </figure>
+        </RouterLink>
       </li>
     </ul>
   </section>

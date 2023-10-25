@@ -27,9 +27,9 @@ const closeDropdown = () => {
             <RouterLink @click="closeDropdown" class="active:bg-primary active:text-black" to="/product">登山行程</RouterLink>
           </li>
           <!-- 登山知識 -->
-          <!-- <li>
+          <li>
             <RouterLink @click="closeDropdown" class="active:bg-primary active:text-black" to="/article">登山知識</RouterLink>
-          </li> -->
+          </li>
           <!-- 行前準備 -->
           <!-- <li>
             <RouterLink @click="closeDropdown" class="active:bg-primary active:text-black" to="/prepare">行前準備</RouterLink>

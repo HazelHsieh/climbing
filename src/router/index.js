@@ -47,7 +47,7 @@ const router = createRouter({
           meta: { title: `登山知識` },
         },
         {
-          path: "/articleInfo",
+          path: "/article/:id",
           name: "articleInfo",
           component: ArticleInfoView,
           meta: { title: `登山知識` },
